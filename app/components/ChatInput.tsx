@@ -19,27 +19,26 @@ const ChatInput: React.FC<ChatInputProps> = ({
         ? "Whispering to the parrot..."
         : "Writing in invisible ink...";
     }
-    return "Type your message...";
+    return "Describe what you do";
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
       handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col md:flex-row">
-      <textarea
+    <form onSubmit={handleSubmit} className="flex flex-col md:flex-row mb-10">
+      <input
         name="message"
         id="message"
-        rows={3}
         placeholder={getPlaceholderText()}
         required
         value={input}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
-        className={`button flex-grow resize-none mb-8 md:mb-0 bg-background text-light placeholder-dark cursor-text ${
+        className={`h-14 w-2/3 rounded-lg border border-gray-200 px-4 ${
           !isLoading ? "hover:border-highlight" : "cursor-not-allowed"
         }`}
         disabled={isLoading}
@@ -51,19 +50,17 @@ const ChatInput: React.FC<ChatInputProps> = ({
       <button
         type="submit"
         aria-label="Send message"
-        className={`button md:ml-8 md:p-12 flex items-center justify-center ${
+        className={`h-14 w-40 ml-10 flex items-center justify-center bg-violet-700 rounded-lg ${
           !isLoading && input
-            ? "hover:border-highlight"
-            : "hover:border-dark cursor-not-allowed"
+            ? "hover:border-highlight hover:bg-violet-400"
+            : "hover:border-dark cursor-not-allowed bg-violet-400"
         }`}
         disabled={!input || isLoading}
       >
         {isLoading ? (
-          <ArrowPathIcon className="h-5 w-5 text-dark animate-spin" />
-        ) : !input ? (
-          <NoSymbolIcon className="h-5 w-5 text-dark" />
+          <p>Loading...</p>
         ) : (
-          <PaperAirplaneIcon className="h-5 w-5 text-highlight" />
+          <p className="text-white text-xl">Generate</p>
         )}
       </button>
     </form>

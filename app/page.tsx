@@ -21,19 +21,21 @@ const ChatForm: React.FC = () => {
     });
 
   return (
-    // <>
-    // <ChatInput
-    //   handleInputChange={handleInputChange}
-    //   handleSubmit={handleSubmit}
-    //   input={input}
-    //   isLoading={isLoading}
-    //   selectedModel={selectedModel}
-    // />
-    //   <ChatMessages messages={messages} selectedModel={selectedModel} />
-    // </>
-
-    <div className=" min-h-screen flex justify-center items-center bg-lime-100 ">
-      <div className="bg-gray py-8 w-2/3 rounded-lg px-64 sm:px-1 md:px-16 lg:px-44">
+    <div className=" min-h-screen flex flex-col justify-center items-center bg-indigo-50">
+      <div className="text-center">
+        <p className="text-6xl font-extrabold text-blue-600">
+          LinkedIn Headline <br /> Generator
+        </p>
+        <p className="mt-10 text-xl font-bold text-gray-500">
+          A LinkedIn Headline Generator using AI to generate highly <br />{" "}
+          engaging LinkedIn headlines to get more profile visits
+        </p>
+        <p className="text-gray-500 mt-8">
+          brought to you for free by SuperGrow
+        </p>
+      </div>
+      <div className="bg-gray py-8 w-1/2 rounded-lg px-24 bg-zinc-100 drop-shadow-2xl mt-8">
+        <p className="text-xl font-semibold mb-2">I am a...</p>
         <ChatInput
           handleInputChange={handleInputChange}
           handleSubmit={handleSubmit}
