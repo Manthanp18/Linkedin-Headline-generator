@@ -22,22 +22,7 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
 
   return (
     <div className="mb-8">
-      <div className="overflow-y-auto break-words border border-dark rounded-lg p-4 min-h-[20vh] max-h-[20vh]">
-        {/* {messages.map((message, index) => (
-          <p>{message.content} </p>
-          // <p key={`${message.role}-${index}`} className="pb-2">
-          //   <span
-          //     className={
-          //       message.role === "user" ? "text-light" : "text-highlight"
-          //     }
-          //   >
-          //     <span className="font-bold">
-          //       {getChatDisplayName(message.role)}
-          //     </span>
-          //     {message.content}
-          //   </span>
-          // </p>
-        ))} */}
+      <div className="overflow-y-auto break-words bg-white drop-shadow-lg rounded-lg p-4 min-h-[15vh] max-h-[40vh]">
         <p>{filteredMessages?.content}</p>
         <div ref={messagesEndRef} />
       </div>
