@@ -22,10 +22,14 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
 
   return (
     <div className="mb-8">
-      <div className="overflow-y-auto break-words bg-white drop-shadow-lg rounded-lg p-4 min-h-[15vh] max-h-[40vh]">
-        <p>{filteredMessages?.content}</p>
-        <div ref={messagesEndRef} />
-      </div>
+      {filteredMessages ? (
+        <div className="overflow-y-auto break-words bg-white drop-shadow-lg rounded-lg p-4 min-h-[15vh] max-h-[40vh]">
+          <p>{filteredMessages?.content}</p>
+          <div ref={messagesEndRef} />
+        </div>
+      ) : (
+        <p></p>
+      )}
     </div>
   );
 };

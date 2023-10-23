@@ -7,6 +7,9 @@ import ChatMessages from "./components/ChatMessages";
 import ChatInput from "./components/ChatInput";
 import { ModelType } from "@/types/ChatTypes";
 
+interface IProps {
+  handleInputChange(event: React.FormEvent<HTMLInputElement>): void;
+}
 /**
  * ChatForm Component
  *

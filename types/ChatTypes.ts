@@ -17,7 +17,7 @@ export type ChatMessagesProps = {
 };
 
 export type ChatInputProps = {
-  handleInputChange: (e: React.ChangeEvent) => void;
+  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   input: string;
   isLoading: boolean;
