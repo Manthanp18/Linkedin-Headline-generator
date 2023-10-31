@@ -1,30 +1,23 @@
 import { useRef, useEffect } from "react";
 import { ChatMessagesProps } from "@/types/ChatTypes";
 
-const ChatMessages: React.FC<ChatMessagesProps> = ({
-  messages,
-  selectedModel,
-}) => {
+const ChatMessages: React.FC<any> = ({ completion, selectedModel }) => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const getChatDisplayName = (role: string) => {
-    if (role === "user") return "You: ";
-    return selectedModel === "gpt-3" ? "The Pirate: " : "The Riddler: ";
-  };
 
-  const filteredMessages = messages[1];
-  console.log(filteredMessages);
+  // const filteredMessages = messages[1];
+  console.log(completion);
 
-  useEffect(() => {
-    if (messages.length > 0 && messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [messages, messagesEndRef]);
+  // useEffect(() => {
+  //   if (messages.length > 0 && messagesEndRef.current) {
+  //     messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // }, [messages, messagesEndRef]);
 
   return (
     <div className="mb-8">
-      {filteredMessages ? (
+      {completion ? (
         <div className="overflow-y-auto break-words bg-white drop-shadow-lg rounded-lg p-4 min-h-[15vh] max-h-[40vh]">
-          <p>{filteredMessages?.content}</p>
+          <p>{completion}</p>
           <div ref={messagesEndRef} />
         </div>
       ) : (

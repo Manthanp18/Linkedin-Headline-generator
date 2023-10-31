@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import { useChat } from "ai/react";
+import { useCompletion } from "ai/react";
 import ChatMessages from "./components/ChatMessages";
 import ChatInput from "./components/ChatInput";
 import { ModelType } from "@/types/ChatTypes";
@@ -18,10 +18,16 @@ interface IProps {
  */
 const ChatForm: React.FC = () => {
   const [selectedModel, setSelectedModel] = useState<ModelType>("gpt-3");
-  const { messages, input, handleInputChange, handleSubmit, isLoading } =
-    useChat({
-      api: `/api/hello`,
-    });
+  const {
+    complete,
+    input,
+    completion,
+    isLoading,
+    handleInputChange,
+    handleSubmit,
+  } = useCompletion({
+    api: `/api/hello`,
+  });
 
   return (
     <div className=" min-h-screen flex flex-col justify-center items-center bg-indigo-50">
@@ -46,7 +52,7 @@ const ChatForm: React.FC = () => {
           isLoading={isLoading}
           selectedModel={selectedModel}
         />
-        <ChatMessages messages={messages} selectedModel={selectedModel} />
+        <ChatMessages completion={completion} selectedModel={selectedModel} />
       </div>
     </div>
   );
